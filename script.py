@@ -1,4 +1,5 @@
 import os
+from time import gmtime, strftime
 
 def categorize_files(directory):
     # 初始化结果字典
@@ -6,7 +7,7 @@ def categorize_files(directory):
 
     # 遍历目录中的所有文件
     for filename in os.listdir(directory):
-        if filename.endswith('.jpg'):
+        if filename.endswith('.jpg') and ' ' in filename:
             # 分离系列名和文件名
             try:
                 series_name, file_name = filename.split(' ', 1)
@@ -25,16 +26,21 @@ def categorize_files(directory):
 
     return series_dict
 
-directory = '../photo-data'
+directory = '/Users/chenjiping/Library/Mobile Documents/com~apple~CloudDocs/export'
 category = categorize_files(directory)
 
 def img_template(file_name):
     return f"""
             <figure>
-              <img src="http://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" onclick="openModal(this)" />
+              <img src="https://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" onclick="openModal(this)" />
               <figcaption>{file_name.replace('.jpg', '')}</figcaption>
             </figure>
             """
+
+def post_cmd():
+    os.system('git add . ')
+    os.system(f'git commit -a -m "update {strftime("%Y-%m-%d %H:%M:%S", gmtime())}"')
+    os.system("git push")
 
 def fill_template(name, file_list):
     with open('category_template.html', 'r') as f:
@@ -57,7 +63,7 @@ def index_template(category):
             li += f"""
               <figure>
                 <a href="{key}.html">
-                  <img src="http://photo-oss.ismy.wang/{category[key][0]}-thumb"/>
+                  <img src="https://photo-oss.ismy.wang/{category[key][0]}-thumb"/>
                 </a>
                 <figcaption>{key}</figcaption>
               </figure>
@@ -70,3 +76,5 @@ for key in category:
 
 with open('index.html', 'w') as f:
     f.write(index_template(category))
+
+post_cmd()
