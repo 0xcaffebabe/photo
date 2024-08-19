@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Photography</title>
+  <style>
+    .banner {
+      height: 50vh;
+      font-size: 6rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #333333 0%, #000000 100%);
+      color: white;
+      font-size: 24px;
+    }
+    body {
+      font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .gallery {
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 默认四列布局 */
+      gap: 10px; /* 图片之间的间距 */
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%; /* 图片宽度占满父容器 */
+      height: 100%; /* 保持图片比例 */
+      object-fit: cover; /* 填充图片并保持比例 */
+      cursor: pointer;
+    }
+
+    @media (max-width: 1200px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr); /* 屏幕宽度小于1200px时显示三列 */
+      }
+    }
+
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr); /* 屏幕宽度小于900px时显示两列 */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: 1fr; /* 屏幕宽度小于600px时显示一列 */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    MY Photography
+  </div>
+  <div class="gallery">
+    
+              <figure>
+                <a href="建筑系列.html">
+                  <img src="http://photo-oss.ismy.wang/建筑系列 杏林大桥.jpg-thumb"/>
+                </a>
+                <figcaption>建筑系列</figcaption>
+              </figure>
+            
+              <figure>
+                <a href="飞机系列.html">
+                  <img src="http://photo-oss.ismy.wang/飞机系列 朝天宫 飞机.jpg-thumb"/>
+                </a>
+                <figcaption>飞机系列</figcaption>
+              </figure>
+            
+  </div>
+</body>
+<footer style="padding: 20px;">
+  <p style="text-align: center;"><a style="color: #333333;" href="mailto:715711877@qq.com">联系我</a></p>
+</footer>
+</html>
