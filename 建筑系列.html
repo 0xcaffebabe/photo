@@ -21,8 +21,7 @@
     }
 
     img {
-      max-width: 100%;
-      max-height: 100vh;
+      object-fit: contain;
       cursor: pointer; /* 鼠标移到图片上时显示为手指图标 */
     }
 
@@ -96,19 +95,19 @@
   <div class="container">
     <div class="left-column">
       
-            <figure>
-              <img src="https://photo-oss.ismy.wang/建筑系列 厦门杏林大桥.jpg-comp" alt="建筑系列 厦门杏林大桥" onclick="openModal(this)" />
-              <figcaption>建筑系列 厦门杏林大桥</figcaption>
-            </figure>
-            
+              <figure>
+                <img src="https://photo-oss.ismy.wang/建筑系列 厦门大桥.jpg-comp" alt="建筑系列 厦门大桥" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
+                <figcaption>建筑系列 厦门大桥</figcaption>
+              </figure>
+              
     </div>
     <div class="right-column">
       
-            <figure>
-              <img src="https://photo-oss.ismy.wang/建筑系列 厦门大桥.jpg-comp" alt="建筑系列 厦门大桥" onclick="openModal(this)" />
-              <figcaption>建筑系列 厦门大桥</figcaption>
-            </figure>
-            
+              <figure>
+                <img src="https://photo-oss.ismy.wang/建筑系列 厦门杏林大桥.jpg-comp" alt="建筑系列 厦门杏林大桥" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
+                <figcaption>建筑系列 厦门杏林大桥</figcaption>
+              </figure>
+              
     </div>
   </div>
 

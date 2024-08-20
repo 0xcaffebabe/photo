@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>{{name}}</title>
+  <title>{{name}} - MY Photography</title>
+  <meta name="description" content="{{name}}">
   <style>
     body {
       margin: 0;
@@ -21,8 +22,7 @@
     }
 
     img {
-      max-width: 100%;
-      max-height: 100vh;
+      object-fit: contain;
       cursor: pointer; /* 鼠标移到图片上时显示为手指图标 */
     }
 

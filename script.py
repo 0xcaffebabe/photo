@@ -1,5 +1,6 @@
 import os
 from time import gmtime, strftime
+from PIL import Image
 
 def categorize_files(directory):
     # 初始化结果字典
@@ -30,12 +31,25 @@ directory = '/Users/chenjiping/Library/Mobile Documents/com~apple~CloudDocs/expo
 category = categorize_files(directory)
 
 def img_template(file_name):
-    return f"""
-            <figure>
-              <img src="https://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" onclick="openModal(this)" />
-              <figcaption>{file_name.replace('.jpg', '')}</figcaption>
-            </figure>
-            """
+    with Image.open(directory + '/' + file_name) as img:
+      # 根据图片设置宽高比例，获得最好的效果
+      imgSize = img.size
+      width, height = imgSize[0], imgSize[1]
+      if height > width:
+          height = 960
+          width = 540
+      elif width > height:
+          height = 540
+          width = 960
+      else:
+          height = 800
+          width = 800 
+      return f"""
+              <figure>
+                <img src="https://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" width="100%" height="{height}" onclick="openModal(this)" loading="lazy" />
+                <figcaption>{file_name.replace('.jpg', '')}</figcaption>
+              </figure>
+              """
 
 def post_cmd():
     os.system('git add . ')
@@ -63,7 +77,7 @@ def index_template(category):
             li += f"""
               <figure>
                 <a href="{key}.html">
-                  <img src="https://photo-oss.ismy.wang/{category[key][0]}-thumb"/>
+                  <img src="https://photo-oss.ismy.wang/{category[key][0]}-thumb" loading="lazy"/>
                 </a>
                 <figcaption>{key}</figcaption>
               </figure>
