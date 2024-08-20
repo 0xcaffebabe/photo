@@ -16,18 +16,22 @@ def get_exif_data(file_path):
         return exif_data
 
 def read_snap_time(exif_data):
+    if not exif_data:
+        return ''
     for tag, value in exif_data.items():
         tag_name = TAGS.get(tag, tag)
         if tag_name == 'DateTimeOriginal':
             return value
-    return None
+    return ''
 
 def get_exif_value(exif_data, key):
+    if not exif_data:
+        return ''
     for tag, value in exif_data.items():
         tag_name = TAGS.get(tag, tag)
         if tag_name == key:
             return value
-    return None
+    return ''
 
 def read_lens_data(exif_data):
     # 镜头信号 镜头制造商 焦距
@@ -41,8 +45,10 @@ def build_img_ex_info(file_name):
     exif_data = get_exif_data(directory + '/' + file_name)
     lens_data = read_lens_data(exif_data)
     exposure_info = read_exposure_info(exif_data)
-    shutter_speed = "1/" + str(round(1 / exposure_info[1], 1))
-    if exposure_info[1] >= 1:
+    shutter_speed = ''
+    if exposure_info[1]:
+        shutter_speed = "1/" + str(round(1 / exposure_info[1], 1))
+    elif exposure_info[1] != '' and exposure_info[1] >= 1:
         shutter_speed = str(exposure_info[1])
     return f"{lens_data[2]}mm, F{exposure_info[0]}, {shutter_speed}s"
 
@@ -145,6 +151,7 @@ def index_template(category):
 for key in category:
     with open(f'{key}.html', 'w') as f:
         f.write(fill_template(key, category[key]))
+        print(key + 'done')
 
 with open('index.html', 'w') as f:
     f.write(index_template(category))
