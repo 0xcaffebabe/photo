@@ -90,7 +90,6 @@ def category_template(name, file_list):
         template = template.replace('{{name}}', name)
         left = ''
         right = ''
-        sort_imgs(file_list)
         for i in range(0, len(file_list)):
             if i % 2 == 0:
                 left += img_template(file_list[i])
@@ -116,6 +115,7 @@ def index_template(category):
 def write_category():
     for key in category:
         file_list = category[key]
+        sort_imgs(file_list)
         for page_num in range(1, calc_pages(file_list) + 1):
             template = category_template(key, file_list[(page_num-1)*page_size:page_num*page_size])
             if calc_pages(file_list)  == 1:
