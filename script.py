@@ -6,7 +6,7 @@ from exif import build_img_ex_info, get_exif_data, read_snap_time
 
 directory = '/Users/chenjiping/Library/Mobile Documents/com~apple~CloudDocs/export'
 
-page_size = 2
+page_size = 20
 
 
 def categorize_files(directory):
