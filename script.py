@@ -4,7 +4,7 @@ from PIL import Image
 
 from exif import build_img_ex_info, get_exif_data, read_snap_time
 
-directory = '../photo-data'
+directory = '/Users/chenjiping/Library/Mobile Documents/com~apple~CloudDocs/export'
 
 page_size = 2
 
@@ -143,4 +143,4 @@ write_category()
 with open('index.html', 'w') as f:
     f.write(index_template(category))
 
-# post_cmd()
+post_cmd()

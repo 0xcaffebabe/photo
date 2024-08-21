@@ -76,6 +76,37 @@
       cursor: pointer;
     }
 
+    /* 分页相关 */
+    .pagination {
+      width: 100%;
+      margin-top: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .pagination a {
+        color: #007bff;
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+
     @media (max-width: 1000px) {
       .container {
         grid-template-columns: 1fr; /* 单列布局 */
@@ -112,6 +143,10 @@
               </figure>
               
     </div>
+  </div>
+
+  <div class="pagination">
+    
   </div>
 
   <!-- 弹出框 -->

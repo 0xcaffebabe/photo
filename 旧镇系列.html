@@ -76,6 +76,37 @@
       cursor: pointer;
     }
 
+    /* 分页相关 */
+    .pagination {
+      width: 100%;
+      margin-top: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .pagination a {
+        color: #007bff;
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+
     @media (max-width: 1000px) {
       .container {
         grid-template-columns: 1fr; /* 单列布局 */
@@ -97,75 +128,31 @@
     <div class="left-column">
       
               <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3598.jpg-comp" alt="旧镇系列 DSC_3598" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3598</figcaption>
-                <figcaption>32.5mm, F8.0, 1/400s | 2024:07:06 16:09:24</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3577.jpg-comp" alt="旧镇系列 DSC_3577" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3577</figcaption>
-                <figcaption>35.0mm, F8.0, 1/500s | 2024:07:05 17:13:31</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3550.jpg-comp" alt="旧镇系列 DSC_3550" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3550</figcaption>
-                <figcaption>38.0mm, F8.0, 1/500s | 2024:07:05 16:47:01</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 旧镇中心小学 DSC_3521.jpg-comp" alt="旧镇系列 旧镇中心小学 DSC_3521" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 旧镇中心小学 DSC_3521</figcaption>
-                <figcaption>34.5mm, F8.0, 1/250s | 2024:07:05 16:19:55</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 旧镇中心小学DSC_3511.jpg-comp" alt="旧镇系列 旧镇中心小学DSC_3511" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 旧镇中心小学DSC_3511</figcaption>
-                <figcaption>101.0mm, F8.0, 1/200s | 2024:07:05 16:15:51</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 教堂.jpg-comp" alt="旧镇系列 教堂" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 教堂</figcaption>
-                <figcaption>35.0mm, F8.0, 1/500s | 2024:07:05 10:26:53</figcaption>
+                <img src="https://photo-oss.ismy.wang/旧镇系列 旧镇中心小学 DSC_3513.jpg-comp" alt="旧镇系列 旧镇中心小学 DSC_3513" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
+                <figcaption>旧镇系列 旧镇中心小学 DSC_3513</figcaption>
+                <figcaption>34.5mm, F8.0, 1/100s | 2024:07:05 16:16:45</figcaption>
               </figure>
               
     </div>
     <div class="right-column">
       
               <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3597.jpg-comp" alt="旧镇系列 DSC_3597" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3597</figcaption>
-                <figcaption>47.0mm, F8.0, 1/160s | 2024:07:06 16:08:24</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3572.jpg-comp" alt="旧镇系列 DSC_3572" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3572</figcaption>
-                <figcaption>35.0mm, F8.0, 1/80s | 2024:07:05 17:05:29</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3528.jpg-comp" alt="旧镇系列 DSC_3528" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3528</figcaption>
-                <figcaption>34.5mm, F8.0, 1/160s | 2024:07:05 16:22:24</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 旧镇中心小学 DSC_3513.jpg-comp" alt="旧镇系列 旧镇中心小学 DSC_3513" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 旧镇中心小学 DSC_3513</figcaption>
-                <figcaption>34.5mm, F8.0, 1/100s | 2024:07:05 16:16:45</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/旧镇系列 DSC_3473.jpg-comp" alt="旧镇系列 DSC_3473" width="100%" height="800" onclick="openModal(this)" loading="lazy" />
-                <figcaption>旧镇系列 DSC_3473</figcaption>
-                <figcaption>140.0mm, F6.3, 1/200s | 2024:07:05 10:32:09</figcaption>
+                <img src="https://photo-oss.ismy.wang/旧镇系列 旧镇中心小学DSC_3511.jpg-comp" alt="旧镇系列 旧镇中心小学DSC_3511" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
+                <figcaption>旧镇系列 旧镇中心小学DSC_3511</figcaption>
+                <figcaption>101.0mm, F8.0, 1/200s | 2024:07:05 16:15:51</figcaption>
               </figure>
               
     </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/旧镇系列.html" class="active">1</a>
+<a href="/pages/旧镇系列2.html" class="">2</a>
+<a href="/pages/旧镇系列3.html" class="">3</a>
+<a href="/pages/旧镇系列4.html" class="">4</a>
+<a href="/pages/旧镇系列5.html" class="">5</a>
+<a href="/pages/旧镇系列6.html" class="">6</a>
+
   </div>
 
   <!-- 弹出框 -->

@@ -76,6 +76,37 @@
       cursor: pointer;
     }
 
+    /* 分页相关 */
+    .pagination {
+      width: 100%;
+      margin-top: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .pagination a {
+        color: #007bff;
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+
     @media (max-width: 1000px) {
       .container {
         grid-template-columns: 1fr; /* 单列布局 */
@@ -97,23 +128,14 @@
     <div class="left-column">
       
               <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 清水宫 厦航.jpg-comp" alt="飞机系列 清水宫 厦航" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 清水宫 厦航</figcaption>
-                <figcaption>35.0mm, F8.0, 1/1250s | 2024:08:18 15:06:39</figcaption>
+                <img src="https://photo-oss.ismy.wang/飞机系列 春秋航空 DSC_5644.jpg-comp" alt="飞机系列 春秋航空 DSC_5644" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
+                <figcaption>飞机系列 春秋航空 DSC_5644</figcaption>
+                <figcaption>34.5mm, F9.0, 1/2500s | 2024:08:17 15:37:26</figcaption>
               </figure>
               
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 朝天宫 飞机.jpg-comp" alt="飞机系列 朝天宫 飞机" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 朝天宫 飞机</figcaption>
-                <figcaption>18.0mm, F10.0, 1/2000s | 2024:08:17 14:43:34</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 深航.jpg-comp" alt="飞机系列 深航" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 深航</figcaption>
-                <figcaption>29.0mm, F9.0, 1/1000s | 2024:08:11 14:50:36</figcaption>
-              </figure>
-              
+    </div>
+    <div class="right-column">
+      
               <figure>
                 <img src="https://photo-oss.ismy.wang/飞机系列 中国联合航空.jpg-comp" alt="飞机系列 中国联合航空" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
                 <figcaption>飞机系列 中国联合航空</figcaption>
@@ -121,33 +143,15 @@
               </figure>
               
     </div>
-    <div class="right-column">
-      
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 清水宫 飞机.jpg-comp" alt="飞机系列 清水宫 飞机" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 清水宫 飞机</figcaption>
-                <figcaption>35.0mm, F10.0, 1/1000s | 2024:08:18 15:00:47</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 公路对面.jpg-comp" alt="飞机系列 公路对面" width="100%" style="aspect-ratio:2.39 / 1" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 公路对面</figcaption>
-                <figcaption>70.0mm, F7.1, 1/1000s | 2024:08:11 15:09:06</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 天桥 海航.jpg-comp" alt="飞机系列 天桥 海航" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 天桥 海航</figcaption>
-                <figcaption>99.0mm, F8.0, 1/2000s | 2024:08:10 15:36:15</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/飞机系列 DSC_3747.jpg-comp" alt="飞机系列 DSC_3747" width="100%" style="aspect-ratio:2.39 / 1" onclick="openModal(this)" loading="lazy" />
-                <figcaption>飞机系列 DSC_3747</figcaption>
-                <figcaption>140.0mm, F8.0, 1/800s | 2024:07:13 15:33:45</figcaption>
-              </figure>
-              
-    </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/飞机系列.html" class="active">1</a>
+<a href="/pages/飞机系列2.html" class="">2</a>
+<a href="/pages/飞机系列3.html" class="">3</a>
+<a href="/pages/飞机系列4.html" class="">4</a>
+<a href="/pages/飞机系列5.html" class="">5</a>
+
   </div>
 
   <!-- 弹出框 -->

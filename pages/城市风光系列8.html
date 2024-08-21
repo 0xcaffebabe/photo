@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>城市风光系列 - MY Photography</title>
+  <meta name="description" content="城市风光系列">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 或者 '50% 50%' */
+      gap: 20px; /* 设置列间距 */
+      margin-top: 20px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    img {
+      object-fit: contain;
+      cursor: pointer; /* 鼠标移到图片上时显示为手指图标 */
+    }
+
+    .banner {
+      height: 50vh;
+      font-size: 6rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #333333 0%, #000000 100%);
+      color: white;
+      font-size: 24px;
+    }
+
+    /* 弹出框样式 */
+    .modal {
+      display: none; /* 默认隐藏 */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(255, 255, 255, 0.8); /* 半透明黑色背景 */
+    }
+
+    .modal-content {
+      margin: 20px auto;
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 40px);;
+    }
+
+    .close {
+      position: fixed;
+      top: 20px;
+      right: 35px;
+      color: #666;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* 分页相关 */
+    .pagination {
+      width: 100%;
+      margin-top: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .pagination a {
+        color: #007bff;
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+
+    @media (max-width: 1000px) {
+      .container {
+        grid-template-columns: 1fr; /* 单列布局 */
+      }
+
+      .banner {
+        font-size: 4rem; /* 调整 banner 文字大小以适应较小屏幕 */
+        height: 40vh; /* 调整 banner 高度以适应较小屏幕 */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    城市风光系列
+  </div>
+  <div class="container">
+    <div class="left-column">
+      
+              <figure>
+                <img src="https://photo-oss.ismy.wang/城市风光系列 DSC_2240.jpg-comp" alt="城市风光系列 DSC_2240" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
+                <figcaption>城市风光系列 DSC_2240</figcaption>
+                <figcaption>140.0mm, F13.0, 1/125s | 2024:06:08 14:52:05</figcaption>
+              </figure>
+              
+    </div>
+    <div class="right-column">
+      
+              <figure>
+                <img src="https://photo-oss.ismy.wang/城市风光系列 窑埠古镇 DSC_1230.jpg-comp" alt="城市风光系列 窑埠古镇 DSC_1230" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
+                <figcaption>城市风光系列 窑埠古镇 DSC_1230</figcaption>
+                <figcaption>68.0mm, F5.3, 1/30s | 2024:05:02 21:29:13</figcaption>
+              </figure>
+              
+    </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/城市风光系列.html" class="">1</a>
+<a href="/pages/城市风光系列2.html" class="">2</a>
+<a href="/pages/城市风光系列3.html" class="">3</a>
+<a href="/pages/城市风光系列4.html" class="">4</a>
+<a href="/pages/城市风光系列5.html" class="">5</a>
+<a href="/pages/城市风光系列6.html" class="">6</a>
+<a href="/pages/城市风光系列7.html" class="">7</a>
+<a href="/pages/城市风光系列8.html" class="active">8</a>
+<a href="/pages/城市风光系列9.html" class="">9</a>
+<a href="/pages/城市风光系列10.html" class="">10</a>
+<a href="/pages/城市风光系列11.html" class="">11</a>
+<a href="/pages/城市风光系列12.html" class="">12</a>
+<a href="/pages/城市风光系列13.html" class="">13</a>
+<a href="/pages/城市风光系列14.html" class="">14</a>
+<a href="/pages/城市风光系列15.html" class="">15</a>
+<a href="/pages/城市风光系列16.html" class="">16</a>
+<a href="/pages/城市风光系列17.html" class="">17</a>
+
+  </div>
+
+  <!-- 弹出框 -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+  <script>
+    // 打开弹出框并显示大图
+    function openModal(imgElement) {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      modal.style.display = "block";
+      modalImg.src = imgElement.src;
+    }
+
+    // 关闭弹出框
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+  </script>
+
+</body>
+<footer style="padding: 20px;">
+  <p style="text-align: center;"><a style="color: #333333;" href="mailto:715711877@qq.com">联系我</a></p>
+</footer>
+
+</html>

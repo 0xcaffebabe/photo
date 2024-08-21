@@ -76,6 +76,37 @@
       cursor: pointer;
     }
 
+    /* 分页相关 */
+    .pagination {
+      width: 100%;
+      margin-top: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .pagination a {
+        color: #007bff;
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        margin: 0 4px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .pagination a:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination a.active {
+        background-color: #007bff;
+        color: white;
+        border: 1px solid #007bff;
+    }
+
+
     @media (max-width: 1000px) {
       .container {
         grid-template-columns: 1fr; /* 单列布局 */
@@ -97,471 +128,64 @@
     <div class="left-column">
       
               <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_5072.jpg-comp" alt="人文系列 DSC_5072" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_5072</figcaption>
-                <figcaption>34.0mm, F8.0, 1/100s | 2024:08:03 14:50:08</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3969.jpg-comp" alt="人文系列 DSC_3969" width="100%" height="800" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3969</figcaption>
-                <figcaption>35.0mm, F4.5, 1/100s | 2024:07:13 18:25:58</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3835.jpg-comp" alt="人文系列 DSC_3835" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3835</figcaption>
-                <figcaption>38.0mm, F8.0, 1/50s | 2024:07:13 16:48:28</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3434.jpg-comp" alt="人文系列 DSC_3434" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3434</figcaption>
-                <figcaption>35.0mm, F13.0, 1/3/10s | 2024:06:29 20:29:26</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3379.jpg-comp" alt="人文系列 DSC_3379" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3379</figcaption>
-                <figcaption>52.0mm, F9.0, 1/160s | 2024:06:29 17:21:10</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3367.jpg-comp" alt="人文系列 DSC_3367" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3367</figcaption>
-                <figcaption>70.0mm, F9.0, 1/160s | 2024:06:29 17:18:46</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3325.jpg-comp" alt="人文系列 DSC_3325" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3325</figcaption>
-                <figcaption>72.0mm, F6.3, 1/125s | 2024:06:29 15:53:30</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3222.jpg-comp" alt="人文系列 DSC_3222" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3222</figcaption>
-                <figcaption>18.0mm, F8.0, 1/125s | 2024:06:22 18:26:53</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3199.jpg-comp" alt="人文系列 DSC_3199" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3199</figcaption>
-                <figcaption>35.0mm, F9.0, 1/125s | 2024:06:22 18:09:44</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3073.jpg-comp" alt="人文系列 DSC_3073" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3073</figcaption>
-                <figcaption>34.5mm, F4.2, 1/60s | 2024:06:22 16:26:42</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2875.jpg-comp" alt="人文系列 DSC_2875" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2875</figcaption>
-                <figcaption>140.0mm, F6.3, 1/160s | 2024:06:09 18:07:45</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2823.jpg-comp" alt="人文系列 DSC_2823" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2823</figcaption>
-                <figcaption>70.0mm, F6.3, 1/100s | 2024:06:09 17:32:57</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2795.jpg-comp" alt="人文系列 DSC_2795" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2795</figcaption>
-                <figcaption>50.0mm, F8.0, 1/100s | 2024:06:09 17:20:56</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2760.jpg-comp" alt="人文系列 DSC_2760" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2760</figcaption>
-                <figcaption>34.0mm, F11.0, 1/125s | 2024:06:09 17:03:14</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2709.jpg-comp" alt="人文系列 DSC_2709" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2709</figcaption>
-                <figcaption>35.0mm, F13.0, 1/125s | 2024:06:09 16:30:03</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2570.jpg-comp" alt="人文系列 DSC_2570" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2570</figcaption>
-                <figcaption>33.5mm, F8.0, 1/125s | 2024:06:09 14:55:20</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2447.jpg-comp" alt="人文系列 DSC_2447" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2447</figcaption>
-                <figcaption>34.0mm, F10.0, 1/125s | 2024:06:08 18:07:05</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2423.jpg-comp" alt="人文系列 DSC_2423" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2423</figcaption>
-                <figcaption>36.0mm, F11.0, 1/125s | 2024:06:08 17:53:08</figcaption>
-              </figure>
-              
-              <figure>
                 <img src="https://photo-oss.ismy.wang/人文系列 DSC_2412.jpg-comp" alt="人文系列 DSC_2412" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
                 <figcaption>人文系列 DSC_2412</figcaption>
                 <figcaption>35.0mm, F9.0, 1/125s | 2024:06:08 17:43:23</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2382.jpg-comp" alt="人文系列 DSC_2382" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2382</figcaption>
-                <figcaption>36.0mm, F11.0, 1/125s | 2024:06:08 16:08:31</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2358.jpg-comp" alt="人文系列 DSC_2358" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2358</figcaption>
-                <figcaption>140.0mm, F14.0, 1/160s | 2024:06:08 15:50:33</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2308.jpg-comp" alt="人文系列 DSC_2308" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2308</figcaption>
-                <figcaption>35.0mm, F16.0, 1/125s | 2024:06:08 15:35:49</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2225.jpg-comp" alt="人文系列 DSC_2225" width="100%" height="800" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2225</figcaption>
-                <figcaption>34.0mm, F4.2, 1/40s | 2024:06:01 19:31:18</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2194.jpg-comp" alt="人文系列 DSC_2194" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2194</figcaption>
-                <figcaption>36.0mm, F5.0, 1/80s | 2024:06:01 16:57:32</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2139.jpg-comp" alt="人文系列 DSC_2139" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2139</figcaption>
-                <figcaption>34.5mm, F4.2, 1/125s | 2024:06:01 14:43:52</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2066.jpg-comp" alt="人文系列 DSC_2066" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2066</figcaption>
-                <figcaption>50.0mm, F4.8, 1/125s | 2024:05:25 17:32:41</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2023.jpg-comp" alt="人文系列 DSC_2023" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2023</figcaption>
-                <figcaption>47.0mm, F7.1, 1/100s | 2024:05:25 15:30:49</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1989.jpg-comp" alt="人文系列 DSC_1989" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1989</figcaption>
-                <figcaption>104.0mm, F9.0, 1/250s | 2024:05:25 14:55:40</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1972.jpg-comp" alt="人文系列 DSC_1972" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1972</figcaption>
-                <figcaption>71.0mm, F9.0, 1/320s | 2024:05:25 14:45:48</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1947.jpg-comp" alt="人文系列 DSC_1947" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1947</figcaption>
-                <figcaption>48.0mm, F9.0, 1/160s | 2024:05:18 17:19:59</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1797.jpg-comp" alt="人文系列 DSC_1797" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1797</figcaption>
-                <figcaption>101.0mm, F6.3, 1/160s | 2024:05:12 17:49:55</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1784.jpg-comp" alt="人文系列 DSC_1784" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1784</figcaption>
-                <figcaption>85.0mm, F6.3, 1/160s | 2024:05:12 17:43:56</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1730.jpg-comp" alt="人文系列 DSC_1730" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1730</figcaption>
-                <figcaption>115.0mm, F8.0, 1/200s | 2024:05:12 16:47:45</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1517.jpg-comp" alt="人文系列 DSC_1517" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1517</figcaption>
-                <figcaption>45.0mm, F7.1, 1/125s | 2024:05:05 06:16:14</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1396.jpg-comp" alt="人文系列 DSC_1396" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1396</figcaption>
-                <figcaption>66.0mm, F6.3, 1/20s | 2024:05:03 19:36:06</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0910.jpg-comp" alt="人文系列 DSC_0910" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0910</figcaption>
-                <figcaption>140.0mm, F9.0, 1/60s | 2024:05:01 14:19:02</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0667.jpg-comp" alt="人文系列 DSC_0667" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0667</figcaption>
-                <figcaption>28.5mm, F18.0, 1/15s | 2024:05:01 11:10:14</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0300.jpg-comp" alt="人文系列 DSC_0300" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0300</figcaption>
-                <figcaption>34.5mm, F4.5, 1/640s | 2024:04:27 14:42:59</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1568.jpg-comp" alt="人文系列 DSC_1568" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1568</figcaption>
-                <figcaption>mm, F, s | </figcaption>
               </figure>
               
     </div>
     <div class="right-column">
       
               <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_4172.jpg-comp" alt="人文系列 DSC_4172" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_4172</figcaption>
-                <figcaption>47.0mm, F4.8, 1/1000s | 2024:07:20 17:53:53</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3874.jpg-comp" alt="人文系列 DSC_3874" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3874</figcaption>
-                <figcaption>105.0mm, F8.0, 1/1250s | 2024:07:13 17:41:11</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 IMG_4776.jpg-comp" alt="人文系列 IMG_4776" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 IMG_4776</figcaption>
-                <figcaption>5.7mm, F1.5, 1/60s | 2024:07:05 17:28:32</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3427.jpg-comp" alt="人文系列 DSC_3427" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3427</figcaption>
-                <figcaption>35.0mm, F8.0, 1/4/5s | 2024:06:29 20:22:08</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3373.jpg-comp" alt="人文系列 DSC_3373" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3373</figcaption>
-                <figcaption>70.0mm, F9.0, 1/160s | 2024:06:29 17:19:58</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3357.jpg-comp" alt="人文系列 DSC_3357" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3357</figcaption>
-                <figcaption>103.0mm, F8.0, 1/125s | 2024:06:29 17:16:06</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3291.jpg-comp" alt="人文系列 DSC_3291" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3291</figcaption>
-                <figcaption>37.0mm, F8.0, 1/60s | 2024:06:29 15:42:05</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3200.jpg-comp" alt="人文系列 DSC_3200" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3200</figcaption>
-                <figcaption>35.0mm, F9.0, 1/125s | 2024:06:22 18:15:04</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_3187.jpg-comp" alt="人文系列 DSC_3187" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_3187</figcaption>
-                <figcaption>35.0mm, F8.0, 1/125s | 2024:06:22 18:04:41</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2949.jpg-comp" alt="人文系列 DSC_2949" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2949</figcaption>
-                <figcaption>72.0mm, F5.3, 1/400s | 2024:06:15 14:18:45</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2842.jpg-comp" alt="人文系列 DSC_2842" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2842</figcaption>
-                <figcaption>70.0mm, F5.3, 1/125s | 2024:06:09 17:52:30</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2813.jpg-comp" alt="人文系列 DSC_2813" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2813</figcaption>
-                <figcaption>70.0mm, F8.0, 1/100s | 2024:06:09 17:29:33</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2783.jpg-comp" alt="人文系列 DSC_2783" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2783</figcaption>
-                <figcaption>51.0mm, F8.0, 1/125s | 2024:06:09 17:17:25</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2722.jpg-comp" alt="人文系列 DSC_2722" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2722</figcaption>
-                <figcaption>34.0mm, F13.0, 1/125s | 2024:06:09 16:40:27</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2595.jpg-comp" alt="人文系列 DSC_2595" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2595</figcaption>
-                <figcaption>35.0mm, F10.0, 1/125s | 2024:06:09 15:14:18</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2514.jpg-comp" alt="人文系列 DSC_2514" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2514</figcaption>
-                <figcaption>36.0mm, F4.2, 1/50s | 2024:06:08 19:10:54</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2439.jpg-comp" alt="人文系列 DSC_2439" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2439</figcaption>
-                <figcaption>34.5mm, F10.0, 1/125s | 2024:06:08 18:05:42</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2418.jpg-comp" alt="人文系列 DSC_2418" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2418</figcaption>
-                <figcaption>99.0mm, F9.0, 1/125s | 2024:06:08 17:45:28</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2388.jpg-comp" alt="人文系列 DSC_2388" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2388</figcaption>
-                <figcaption>140.0mm, F9.0, 1/125s | 2024:06:08 16:10:30</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2370.jpg-comp" alt="人文系列 DSC_2370" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2370</figcaption>
-                <figcaption>35.0mm, F9.0, 1/125s | 2024:06:08 16:04:42</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2330.jpg-comp" alt="人文系列 DSC_2330" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2330</figcaption>
-                <figcaption>35.0mm, F9.0, 1/125s | 2024:06:08 15:40:42</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2304.jpg-comp" alt="人文系列 DSC_2304" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2304</figcaption>
-                <figcaption>73.0mm, F13.0, 1/125s | 2024:06:08 15:34:28</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2204.jpg-comp" alt="人文系列 DSC_2204" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2204</figcaption>
-                <figcaption>34.0mm, F4.2, 1/40s | 2024:06:01 18:48:45</figcaption>
-              </figure>
-              
-              <figure>
                 <img src="https://photo-oss.ismy.wang/人文系列 DSC_2162.jpg-comp" alt="人文系列 DSC_2162" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
                 <figcaption>人文系列 DSC_2162</figcaption>
                 <figcaption>35.0mm, F11.0, 1/125s | 2024:06:01 15:01:13</figcaption>
               </figure>
               
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2132.jpg-comp" alt="人文系列 DSC_2132" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2132</figcaption>
-                <figcaption>37.0mm, F9.0, 1/125s | 2024:06:01 14:38:46</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_2053.jpg-comp" alt="人文系列 DSC_2053" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_2053</figcaption>
-                <figcaption>68.0mm, F7.1, 1/200s | 2024:05:25 16:32:58</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1997.jpg-comp" alt="人文系列 DSC_1997" width="100%" style="aspect-ratio:2.39 / 1" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1997</figcaption>
-                <figcaption>52.0mm, F9.0, 1/320s | 2024:05:25 15:04:21</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1986.jpg-comp" alt="人文系列 DSC_1986" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1986</figcaption>
-                <figcaption>50.0mm, F9.0, 1/250s | 2024:05:25 14:55:02</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1970.jpg-comp" alt="人文系列 DSC_1970" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1970</figcaption>
-                <figcaption>98.0mm, F9.0, 1/320s | 2024:05:25 14:42:51</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1920.jpg-comp" alt="人文系列 DSC_1920" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1920</figcaption>
-                <figcaption>69.0mm, F5.6, 1/80s | 2024:05:18 17:02:59</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1789.jpg-comp" alt="人文系列 DSC_1789" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1789</figcaption>
-                <figcaption>110.0mm, F6.0, 1/160s | 2024:05:12 17:46:28</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1753.jpg-comp" alt="人文系列 DSC_1753" width="100%" height="540" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1753</figcaption>
-                <figcaption>74.0mm, F5.3, 1/320s | 2024:05:12 17:04:00</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1629.jpg-comp" alt="人文系列 DSC_1629" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1629</figcaption>
-                <figcaption>38.0mm, F4.5, 1/320s | 2024:05:12 15:19:53</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1494.jpg-comp" alt="人文系列 DSC_1494" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1494</figcaption>
-                <figcaption>73.0mm, F5.6, 1/100s | 2024:05:04 16:47:02</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_1290.jpg-comp" alt="人文系列 DSC_1290" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_1290</figcaption>
-                <figcaption>51.0mm, F8.0, 1/400s | 2024:05:03 12:30:00</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0708.jpg-comp" alt="人文系列 DSC_0708" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0708</figcaption>
-                <figcaption>59.0mm, F7.1, 1/30s | 2024:05:01 11:29:01</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0388.jpg-comp" alt="人文系列 DSC_0388" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0388</figcaption>
-                <figcaption>84.0mm, F9.0, 1/80s | 2024:04:27 15:30:07</figcaption>
-              </figure>
-              
-              <figure>
-                <img src="https://photo-oss.ismy.wang/人文系列 DSC_0185.jpg-comp" alt="人文系列 DSC_0185" width="100%" height="960" onclick="openModal(this)" loading="lazy" />
-                <figcaption>人文系列 DSC_0185</figcaption>
-                <figcaption>51.0mm, F5.0, 1/80s | 2024:04:27 13:54:46</figcaption>
-              </figure>
-              
     </div>
+  </div>
+
+  <div class="pagination">
+    <a href="/人文系列.html" class="active">1</a>
+<a href="/pages/人文系列2.html" class="">2</a>
+<a href="/pages/人文系列3.html" class="">3</a>
+<a href="/pages/人文系列4.html" class="">4</a>
+<a href="/pages/人文系列5.html" class="">5</a>
+<a href="/pages/人文系列6.html" class="">6</a>
+<a href="/pages/人文系列7.html" class="">7</a>
+<a href="/pages/人文系列8.html" class="">8</a>
+<a href="/pages/人文系列9.html" class="">9</a>
+<a href="/pages/人文系列10.html" class="">10</a>
+<a href="/pages/人文系列11.html" class="">11</a>
+<a href="/pages/人文系列12.html" class="">12</a>
+<a href="/pages/人文系列13.html" class="">13</a>
+<a href="/pages/人文系列14.html" class="">14</a>
+<a href="/pages/人文系列15.html" class="">15</a>
+<a href="/pages/人文系列16.html" class="">16</a>
+<a href="/pages/人文系列17.html" class="">17</a>
+<a href="/pages/人文系列18.html" class="">18</a>
+<a href="/pages/人文系列19.html" class="">19</a>
+<a href="/pages/人文系列20.html" class="">20</a>
+<a href="/pages/人文系列21.html" class="">21</a>
+<a href="/pages/人文系列22.html" class="">22</a>
+<a href="/pages/人文系列23.html" class="">23</a>
+<a href="/pages/人文系列24.html" class="">24</a>
+<a href="/pages/人文系列25.html" class="">25</a>
+<a href="/pages/人文系列26.html" class="">26</a>
+<a href="/pages/人文系列27.html" class="">27</a>
+<a href="/pages/人文系列28.html" class="">28</a>
+<a href="/pages/人文系列29.html" class="">29</a>
+<a href="/pages/人文系列30.html" class="">30</a>
+<a href="/pages/人文系列31.html" class="">31</a>
+<a href="/pages/人文系列32.html" class="">32</a>
+<a href="/pages/人文系列33.html" class="">33</a>
+<a href="/pages/人文系列34.html" class="">34</a>
+<a href="/pages/人文系列35.html" class="">35</a>
+<a href="/pages/人文系列36.html" class="">36</a>
+<a href="/pages/人文系列37.html" class="">37</a>
+<a href="/pages/人文系列38.html" class="">38</a>
+<a href="/pages/人文系列39.html" class="">39</a>
+
   </div>
 
   <!-- 弹出框 -->
