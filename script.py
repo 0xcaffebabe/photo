@@ -1,56 +1,13 @@
 import os
 from time import gmtime, strftime
 from PIL import Image
-from PIL.ExifTags import TAGS, GPSTAGS
 
-directory = '/Users/chenjiping/Library/Mobile Documents/com~apple~CloudDocs/export'
+from exif import build_img_ex_info, get_exif_data, read_snap_time
 
-exif_cache = {}
+directory = '../photo-data'
 
-def get_exif_data(file_path):
-    if file_path in exif_cache:
-        return exif_cache[file_path]
-    with Image.open(file_path) as image:
-        exif_data = image._getexif()
-        exif_cache[file_path] = exif_data
-        return exif_data
+page_size = 2
 
-def read_snap_time(exif_data):
-    if not exif_data:
-        return ''
-    for tag, value in exif_data.items():
-        tag_name = TAGS.get(tag, tag)
-        if tag_name == 'DateTimeOriginal':
-            return value
-    return ''
-
-def get_exif_value(exif_data, key):
-    if not exif_data:
-        return ''
-    for tag, value in exif_data.items():
-        tag_name = TAGS.get(tag, tag)
-        if tag_name == key:
-            return value
-    return ''
-
-def read_lens_data(exif_data):
-    # 镜头信号 镜头制造商 焦距
-    return get_exif_value(exif_data, 'LensModel'), get_exif_value(exif_data, 'LensMake'), get_exif_value(exif_data, 'FocalLength')
-
-def read_exposure_info(exif_data):
-    # 光圈 快门速度 ISO
-    return get_exif_value(exif_data, 'FNumber'), get_exif_value(exif_data, 'ExposureTime'), get_exif_value(exif_data, 'ISOSpeedRatings')
-
-def build_img_ex_info(file_name):
-    exif_data = get_exif_data(directory + '/' + file_name)
-    lens_data = read_lens_data(exif_data)
-    exposure_info = read_exposure_info(exif_data)
-    shutter_speed = ''
-    if exposure_info[1]:
-        shutter_speed = "1/" + str(round(1 / exposure_info[1], 1))
-    elif exposure_info[1] != '' and exposure_info[1] >= 1:
-        shutter_speed = str(exposure_info[1])
-    return f"{lens_data[2]}mm, F{exposure_info[0]}, {shutter_speed}s"
 
 def categorize_files(directory):
     # 初始化结果字典
@@ -77,8 +34,6 @@ def categorize_files(directory):
 
     return series_dict
 
-category = categorize_files(directory)
-
 def img_template(file_name):
     with Image.open(directory + '/' + file_name) as img:
       # 根据图片设置宽高比例，获得最好的展示效果
@@ -94,7 +49,7 @@ def img_template(file_name):
               <figure>
                 <img src="https://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" width="100%" style="aspect-ratio:2.39 / 1" onclick="openModal(this)" loading="lazy" />
                 <figcaption>{file_name.replace('.jpg', '')}</figcaption>
-                <figcaption>{build_img_ex_info(file_name)} | {read_snap_time(get_exif_data(directory + '/' + file_name))}</figcaption>
+                <figcaption>{build_img_ex_info(directory + '/' + file_name)} | {read_snap_time(get_exif_data(directory + '/' + file_name))}</figcaption>
               </figure>
               """
           else:
@@ -107,19 +62,29 @@ def img_template(file_name):
               <figure>
                 <img src="https://photo-oss.ismy.wang/{file_name}-comp" alt="{file_name.replace('.jpg', '')}" width="100%" height="{height}" onclick="openModal(this)" loading="lazy" />
                 <figcaption>{file_name.replace('.jpg', '')}</figcaption>
-                <figcaption>{build_img_ex_info(file_name)} | {read_snap_time(get_exif_data(directory + '/' + file_name))}</figcaption>
+                <figcaption>{build_img_ex_info(directory + '/' + file_name)} | {read_snap_time(get_exif_data(directory + '/' + file_name))}</figcaption>
               </figure>
               """
-
-def post_cmd():
-    os.system('git add . ')
-    os.system(f'git commit -a -m "update {strftime("%Y-%m-%d %H:%M:%S", gmtime())}"')
-    os.system("git push")
 
 def sort_imgs(file_list):
     file_list.sort(key=lambda x: read_snap_time(get_exif_data(directory + '/' + x)), reverse=True)
 
-def fill_template(name, file_list):
+# 计算页数
+def calc_pages(file_list):
+    if len(file_list) % page_size == 0:
+        return len(file_list) // page_size
+    return len(file_list) // page_size + 1
+
+def generate_page_html(page_num, category, total_page):
+    html = ''
+    for i in range(1, total_page + 1):
+        if i == 1:
+            html += f'<a href="/{category}.html" class="{ "active" if i == page_num else ""}">{i}</a>\n'
+        else:
+            html += f'<a href="/pages/{category}{i}.html" class="{ "active" if i == page_num else ""}">{i}</a>\n'
+    return html
+
+def category_template(name, file_list):
     with open('category_template.html', 'r') as f:
         template = f.read()
         template = template.replace('{{name}}', name)
@@ -148,12 +113,34 @@ def index_template(category):
             """
         return template.replace('{{list}}', li)
 
-for key in category:
-    with open(f'{key}.html', 'w') as f:
-        f.write(fill_template(key, category[key]))
-        print(key + 'done')
+def write_category():
+    for key in category:
+        file_list = category[key]
+        for page_num in range(1, calc_pages(file_list) + 1):
+            template = category_template(key, file_list[(page_num-1)*page_size:page_num*page_size])
+            if calc_pages(file_list)  == 1:
+                template = template.replace('{{pages}}', '')
+            else:
+                template = template.replace('{{pages}}', generate_page_html(page_num, key, calc_pages(file_list)))
+            if page_num == 1:
+                with open(f'{key}.html', 'w') as f:
+                    f.write(template)
+            else:
+                with open(f'./pages/{key}{page_num}.html', 'w') as f:
+                    f.write(template)
+
+            print(key + str(page_num) + 'done')
+
+def post_cmd():
+    os.system('git add . ')
+    os.system(f'git commit -a -m "update {strftime("%Y-%m-%d %H:%M:%S", gmtime())}"')
+    os.system("git push")
+
+category = categorize_files(directory)
+
+write_category()
 
 with open('index.html', 'w') as f:
     f.write(index_template(category))
 
-post_cmd()
+# post_cmd()
