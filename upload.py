@@ -45,6 +45,9 @@ def diff():
   cloud_files = get_cloud_files_md5()
   local_files = get_local_files()
   # 以本地文件为准
+  upload_to_cloud = 0
+  md5_difference = 0
+  del_from_cloud = 0
   for filename in local_files:
       local_md5 = calc_file_md5(os.path.join(directory, filename))
       # 文件不在云端
@@ -54,12 +57,14 @@ def diff():
         token = q.upload_token(bucket_name, filename, 3600)
         ret, info = put_file(token, filename, os.path.join(directory, filename))
         print(ret, info)
+        upload_to_cloud += 1
       elif local_md5 != cloud_files[filename]:
         print(filename + ' md5不一致，准备上传')
         # 上传文件
         token = q.upload_token(bucket_name, filename, 3600)
         ret, info = put_file(token, filename, os.path.join(directory, filename))
         print(ret, info)
+        md5_difference += 1
       else:
           print(filename + ' 云端本地一致，无需上传')
   # 删除不在本地的云端文件
@@ -69,5 +74,7 @@ def diff():
           # 删除云端文件
           ret, info = bucket.delete(bucket_name, filename)
           print(ret, info)
+          del_from_cloud += 1
+  print(f'不在云端上传数 {upload_to_cloud}, md5 不一致上传数 {md5_difference}, 删除不在本地的云端文件数 {del_from_cloud}' )
 
 diff()
