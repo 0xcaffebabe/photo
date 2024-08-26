@@ -17,7 +17,7 @@ def read_snap_time(exif_data):
         tag_name = TAGS.get(tag, tag)
         if tag_name == 'DateTimeOriginal':
             return value
-    return ''
+    return get_exif_value(exif_data, 'DateTime')
 
 def get_exif_value(exif_data, key):
     if not exif_data:
