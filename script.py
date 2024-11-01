@@ -85,7 +85,7 @@ def generate_page_html(page_num, category, total_page):
     return html
 
 def category_template(name, file_list):
-    with open('category_template.html', 'r') as f:
+    with open('./templates/category_template.html', 'r') as f:
         template = f.read()
         template = template.replace('{{name}}', name)
         left = ''
@@ -98,7 +98,7 @@ def category_template(name, file_list):
         return template.replace('{{left}}', left).replace('{{right}}', right)
 
 def index_template(category):
-    with open('index_template.html', 'r') as f:
+    with open('./templates/index_template.html', 'r') as f:
         template = f.read()
         li = ''
         for key in category:
